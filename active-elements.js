@@ -59,10 +59,26 @@ function(wrapper){
     attach.focus();
   };
 
+  var _trapped = function(element){
+    var focusableTabs = element.querySelectorAll(FOCUSABLESTRING) ;
+    var tab = 0;
+    return function(ev){
+        if (keyCode === 9){
+            tap++;
+        }
+        if (tap > focusableTabs.length-1){ focusableTabs[0].focus(); tab = 0; }
+    };
+  };
 
   var _trapIn = 
   function(element){
+    var elements = element.querySelectorAll(FOCUSABLESTRING);
+    document.addEventListener('keydown',_trapped(elements),true);
+  };
 
+  var _trapOut =
+  function(){
+    document.removeEventListener('keydown',_trapped(),false);
   };
   
   /*
