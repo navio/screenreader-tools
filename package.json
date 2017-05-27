@@ -1,0 +1,16 @@
+{
+  "name": "screenreader-tools",
+  "version": "1.0.0",
+  "description": "This module provides a set of libraries to support screen reader navigations. Vanilla JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "keywords": [
+    "Accessibility",
+    "Screen",
+    "Readers"
+  ],
+  "author": "Alberto Navarro",
+  "license": "MIT"
+}
