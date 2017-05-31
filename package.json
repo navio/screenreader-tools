@@ -4,6 +4,10 @@
   "description": "This module provides a set of libraries to support screen reader navigations. Vanilla JS",
   "main": "index.js",
   "scripts": {
+    "start":"./lib.js",
+    "release": "webpack --entry ./index.js --output-filename lib.js --output-library screen-reader --output-library-target commonjs2 -p",
+    "build": "webpack --entry ./index.js --output-filename lib.js --output-library screen-reader --output-library-target commonjs2",
+    "watch": "webpack --entry ./index.js --output-filename lib.js --output-library screen-reader --output-library-target commonjs2 --watch",
     "test": "test.js"
   },
   "keywords": [

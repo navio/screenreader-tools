@@ -2,10 +2,12 @@ var elements =
 function(wrapper){
   
   var activeElements = [];
+  
+  var trapped;
   var container = (wrapper || document.body);
   var FOCUSABLE = ['A','INPUT','SELECT','TEXT','TEXTAREA','BUTTON','IFRAME'];
-  var FOCUSABLESTRING = "a[href]:visible, area[href]:visible, input:not([disabled]):visible, select:not([disabled]):visible, textarea:not([disabled]):visible, button:not([disabled]):visible, iframe:visible, object:visible, embed:visible, *[tabindex]:visible, *[contenteditable]:visible";
-  var trapped;
+  var FOCUSABLESTRING = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+
   /*
    * Creates special container outside of wrapper, if not provided outisde of body.
    * This is not semantically correct, but it forces screen reader to lock only in the active element.
