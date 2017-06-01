@@ -1,4 +1,4 @@
-var elements = 
+module.exports =  
 function(wrapper){
   
   var activeElements = [];
@@ -25,6 +25,14 @@ function(wrapper){
   };
   
   /*
+   *
+   */
+   var _clear =
+   function(){
+    activeElements = [];
+   };
+
+  /*
    * Add new element to the queue of active elements.
    */
   var _add = 
@@ -48,10 +56,11 @@ function(wrapper){
    */
   var _focusTo = 
   function(element){
+    if(!element) return;
     var tagName = element.tagName.toUpperCase();
     var attach = ( FOCUSABLE.indexOf(tagName) === -1 ) ? null: element;
     
-    if (!attach){ // If our element is not focusable. 
+    if (attach === null){ // If our element is not focusable. 
         attach = 
         element.querySelectorAll(FOCUSABLESTRING); // look for a focusable children.
         attach = attach.length > 0 ? attach.length[0] : 
@@ -59,8 +68,8 @@ function(wrapper){
                          anchor.setAttribute('href','#'); 
                          return anchor; }());
     }
-
-    attach.focus();
+    return attach;
+    //attach.focus();
   };
 
   var _trapped = 
@@ -114,11 +123,14 @@ function(wrapper){
   }
   
   return {
-    add: _add,
-    next: _next,
+    queue:{ 
+      add: _add,
+      next: _next,
+      flush:_clear
+    },
     focus: _focusTo,
     trapIn: _trapIn,
-    trapOut: _tropOut
+    trapOut: _trapOut
   };
   
 };

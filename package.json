@@ -2,12 +2,13 @@
   "name": "screenreader-tools",
   "version": "1.0.0",
   "description": "This module provides a set of libraries to support screen reader navigations. Vanilla JS",
-  "main": "index.js",
+  "main": "lib.js",
   "scripts": {
     "start":"./lib.js",
-    "release": "webpack --entry ./index.js --output-filename lib.js --output-library screen-reader --output-library-target commonjs2 -p",
-    "build": "webpack --entry ./index.js --output-filename lib.js --output-library screen-reader --output-library-target commonjs2",
-    "watch": "webpack --entry ./index.js --output-filename lib.js --output-library screen-reader --output-library-target commonjs2 --watch",
+    "release": "webpack --entry ./src/index.js --output-filename lib.js --output-library srt --output-library-target commonjs2 -p",
+    "window": "webpack --entry ./src/index.js --output-filename lib.js --output-library srt --output-library-target window -p",
+    "build": "webpack --entry ./src/index.js --output-filename lib.js --output-library srt --output-library-target commonjs2",
+    "watch": "webpack --entry ./src/index.js --output-filename lib.js --output-library srt --output-library-target commonjs2 --watch",
     "test": "test.js"
   },
   "keywords": [
